@@ -125,13 +125,13 @@
                                                         <strong>{{ $errors->first('password') }}</strong>
 
                                                     </span>
-                                                @else
+                                             {{--   @else
 
                                                     <span class="help-block">
 
                                                         <strong>Su contraseña es el CI. </strong>
 
-                                                    </span>
+                                                    </span>--}}
 
                                                 @endif
 
