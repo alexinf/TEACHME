@@ -48,19 +48,18 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         $messages = [
-            'password.regex' => 'EL campo :attribute debe contener al menos una letra mayuscula, una minuscula.',
+            'password.regex' => 'EL campo :attribute debe contener al menos una letra mayuscula, un caracter especial y debe ser mayor a 8 caracteres.',
         ];
 
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'paternal_lastname' => 'required|string|max:100',
-            'maternal_lastname' => 'nullable|string|max:100',
+            'lastname' => 'nullable|string|max:100',
+            //'maternal_lastname' => 'required|string|max:100',
             'ci' => 'required|digits_between:6,9|unique:users,ci',
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
             //"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
             //"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-            // https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
             //'password' => 'required|digits_between:6,9|unique:users,ci',
             'phone' => 'nullable|string',
             'type_subscription' => 'required|numeric|digits:1',
@@ -79,15 +78,22 @@ class RegisterController extends Controller
         $user = User::create([
             'username'=> $data['username'],
             'name' => $data['name'],
-            'paternal_lastname' => $data['paternal_lastname'],
-            'maternal_lastname' => $data['maternal_lastname'],
+            'lastname' => $data['lastname'],
+            //'maternal_lastname' => $data['maternal_lastname'],
             'ci' => $data['ci'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'phone' => $data['phone'],
         ]);
 
-        $user->assignRole(User::STUDENT_ROL);
+        $user->assignRole($data['type_subscription']);
+//        if ( $data['type_subscription']==3) {
+//            $user->assignRole(User::STUDENT_ROL);
+//        }
+//        else if{
+//
+//        }
+//        $user->assignRole(User::STUDENT_ROL);
 
         return $user;
     }

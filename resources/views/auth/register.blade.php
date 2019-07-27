@@ -34,7 +34,7 @@
 
                     <h3 class="box-title">Registro</h3>
 
-                    <div class="box-tools pull-right">
+                    {{--<div class="box-tools pull-right">
 
                         <button type="button"
                                 class="btn btn-box-tool"
@@ -56,7 +56,7 @@
 
                         </button>
 
-                    </div>
+                    </div>--}}
                 </div>
 
                 <div class="box-body">
@@ -78,68 +78,6 @@
 
                                         <div class="box-body">
 
-                                            <div class="form-group {{ $errors->has('ci') ? ' has-error' : '' }}">
-
-                                                <label for="ci" class="col-sm-2 control-label">Carnet</label>
-
-                                                <div class="col-sm-10">
-
-                                                    <input type="text"
-                                                           class="form-control"
-                                                           id="ci"
-                                                           name="ci"
-                                                           value="{{ old('ci') }}"
-                                                           placeholder="Cédula de Identidad">
-
-                                                    @if ($errors->has('ci'))
-
-                                                        <span class="help-block">
-
-                                                            <strong>{{ $errors->first('ci') }}</strong>
-
-                                                        </span>
-
-                                                    @endif
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group {{ $errors->has('type_subscription') ? ' has-error' : '' }}">
-
-                                                <label for="type_subscription" class="col-sm-2 control-label">Role</label>
-
-                                                <div class="col-sm-10">
-
-                                                    <select class="form-control" name="type_subscription" id="type_subscription">
-
-                                                        @foreach(['Estudiante', 'Docente'] as $key => $type)
-
-                                                            <option value="{{ $key }}"
-                                                                    @if(old('type_subscription', '') == $key) selected @endif>
-
-                                                                {{ $type }}
-
-                                                            </option>
-
-                                                        @endforeach
-
-                                                    </select>
-
-                                                    @if ($errors->has('type_subscription'))
-
-                                                        <span class="help-block">
-
-                                                            <strong>{{ $errors->first('type_subscription') }}</strong>
-
-                                                        </span>
-
-                                                    @endif
-
-                                                </div>
-
-                                            </div>
-
                                             <div class="form-group {{ $errors->has('username') ? ' has-error' : '' }}">
 
                                                 <label for="username" class="col-sm-2 control-label">Usuario</label>
@@ -151,7 +89,7 @@
                                                            id="username"
                                                            name="username"
                                                            value="{{ old('username') }}"
-                                                           placeholder="Usuario">
+                                                           placeholder="Nombre De Usuario">
 
                                                     @if ($errors->has('username'))
 
@@ -169,7 +107,7 @@
 
                                             <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
 
-                                                <label for="password" class="col-sm-2 control-label">Contrasenia</label>
+                                                <label for="password" class="col-sm-2 control-label">Contraseña</label>
 
                                                 <div class="col-sm-10">
 
@@ -178,7 +116,7 @@
                                                            id="password"
                                                            name="password"
                                                            value="{{ old('password') }}"
-                                                           placeholder="Contrasenia">
+                                                           placeholder="Contraseña">
 
                                                     @if ($errors->has('password'))
 
@@ -196,7 +134,7 @@
 
                                             <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
 
-                                                <label for="password_confirmation" class="col-sm-2 control-label">Repetir Contrasenia</label>
+                                                <label for="password_confirmation" class="col-sm-2 control-label">Repetir Contraseña</label>
 
                                                 <div class="col-sm-10">
 
@@ -205,7 +143,7 @@
                                                            id="password_confirmation"
                                                            name="password_confirmation"
                                                            value="{{ old('password_confirmation') }}"
-                                                           placeholder="Repetir Contrasenia">
+                                                           placeholder="Repita Contraseña">
 
                                                     {{--@if ($errors->has('password_confirmation'))
 
@@ -248,24 +186,24 @@
 
                                             </div>
 
-                                            <div class="form-group {{ $errors->has('paternal_lastname') ? ' has-error' : '' }}">
+                                            <div class="form-group {{ $errors->has('lastname') ? ' has-error' : '' }}">
 
-                                                <label for="paternal_lastname" class="col-sm-2 control-label">Apellido Paterno</label>
+                                                <label for="lastname" class="col-sm-2 control-label">Apellidos</label>
 
                                                 <div class="col-sm-10">
 
                                                     <input type="text"
                                                            class="form-control"
-                                                           id="paternal_lastname"
-                                                           name="paternal_lastname"
-                                                           value="{{ old('paternal_lastname') }}"
+                                                           id="lastname"
+                                                           name="lastname"
+                                                           value="{{ old('lastname') }}"
                                                            placeholder="Apellido Paterno">
 
-                                                    @if ($errors->has('paternal_lastname'))
+                                                    @if ($errors->has('lastname'))
 
                                                         <span class="help-block">
 
-                                                            <strong>{{ $errors->first('paternal_lastname') }}</strong>
+                                                            <strong>{{ $errors->first('lastname') }}</strong>
 
                                                         </span>
 
@@ -275,7 +213,7 @@
 
                                             </div>
 
-                                            <div class="form-group {{ $errors->has('maternal_lastname') ? ' has-error' : '' }}">
+                                           {{-- <div class="form-group {{ $errors->has('maternal_lastname') ? ' has-error' : '' }}">
 
                                                 <label for="maternal_lastname" class="col-sm-2 control-label">Apellido Materno</label>
 
@@ -293,6 +231,33 @@
                                                         <span class="help-block">
 
                                                             <strong>{{ $errors->first('maternal_lastname') }}</strong>
+
+                                                        </span>
+
+                                                    @endif
+
+                                                </div>
+
+                                            </div>--}}
+
+                                            <div class="form-group {{ $errors->has('ci') ? ' has-error' : '' }}">
+
+                                                <label for="ci" class="col-sm-2 control-label">Carnet</label>
+
+                                                <div class="col-sm-10">
+
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           id="ci"
+                                                           name="ci"
+                                                           value="{{ old('ci') }}"
+                                                           placeholder="Cédula de Identidad">
+
+                                                    @if ($errors->has('ci'))
+
+                                                        <span class="help-block">
+
+                                                            <strong>{{ $errors->first('ci') }}</strong>
 
                                                         </span>
 
@@ -356,13 +321,31 @@
 
                                             </div>
 
-                                            <div class="form-group {{ $errors->has('fecha') ? ' has-error' : '' }}">
-                                                    <label>Date:</label>
+                                            <div class="form-group {{ $errors->has('type_subscription') ? ' has-error' : '' }}">
 
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </div>
+
+                                                <div class="col-sm-10">
+
+                                                    <label for="type_subscription" class="col-sm-2 control-label">Role</label>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="type_subscription" id="type_subscription" value="3" checked>
+                                                            ESTUDIANTE
+                                                        </label>
+                                                        <label>
+                                                            <input type="radio" name="type_subscription" id="type_subscription" value="2">
+                                                            DOCENTE
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group {{ $errors->has('fecha') ? ' has-error' : '' }}">
+                                                    <label for="date" class="col-sm-2 control-label">Fecha de Nacimiento</label>
+
+                                                    <div class="col-sm-10">
                                                         <input type="date" class="form-control pull-right" id="date">
                                                     </div>
                                                     <!-- /.input group -->

@@ -22,7 +22,7 @@ class Administrator extends Seeder
 
         $user = User::create([
             'name' => 'Administrator',
-            'paternal_lastname' => 'user',
+            'lastname' => 'user',
             'email' => 'admin@admin.com',
             'password' => bcrypt('superadmin'),
             'ci' => '20002000',

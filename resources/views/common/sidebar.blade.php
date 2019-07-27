@@ -88,7 +88,9 @@
             </li>
             @endrole
 
+            @role('student')
             <li>
+
 
                 <a href="#">
 
@@ -112,6 +114,8 @@
 
             </li>
 
+            @endrole
+            @role('teacher')
             <li>
 
                 <a href="#">
@@ -123,64 +127,19 @@
                 </a>
 
             </li>
-
-            <li class="treeview">
+            <li>
 
                 <a href="#">
 
-                    <i class="fa fa-list-ul"></i>
+                    <i class="fa fa-user-circle-o"></i>
 
-                    <span>Otros</span>
-
-                    <span class="pull-right-container">
-
-                        <i class="fa fa-angle-left pull-right"></i>
-
-                    </span>
+                    <span>Estudiantes</span>
 
                 </a>
 
-                <ul class="treeview-menu">
-
-                    <li>
-
-                        <a href="#">
-
-                            <i class="fa fa-circle-o-notch"></i>
-
-                            <span>level 1</span>
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            <i class="fa fa-circle-thin"></i>
-
-                            <span>level 2</span>
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            <i class="fa fa-circle-o"></i>
-
-                            <span>level 3</span>
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
             </li>
+            @endrole
+
 
         </ul>
 
